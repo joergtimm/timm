@@ -26,6 +26,11 @@ class RegistrationController extends AbstractController
             /** @var string $plainPassword */
             $plainPassword = $form->get('plainPassword')->getData();
 
+            // Ensure username is set. If none provided, default to email.
+            if (!$user->getUsername()) {
+                $user->setUsername($user->getEmail() ?? '');
+            }
+
             // encode the plain password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
