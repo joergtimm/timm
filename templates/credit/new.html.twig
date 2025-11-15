@@ -1,0 +1,15 @@
+{% extends 'layout/dashboard.html.twig' %}
+
+{% block title %}Neue Gutschrift{% endblock %}
+
+{% block main %}
+<div class="container mx-auto p-6 space-y-4 dark:text-gray-100">
+    <h1 class="text-2xl font-semibold">Neue Gutschrift</h1>
+
+    {% include 'credit/_form.html.twig' with {form: form} %}
+
+    <div>
+        <a href="{{ path('app_credit_index') }}" class="text-blue-500">Zurück zur Liste</a>
+    </div>
+</div>
+{% endblock %}
